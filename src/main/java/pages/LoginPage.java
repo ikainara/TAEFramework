@@ -3,7 +3,6 @@ package pages;
 import BaseElements.BaseAbstractPage;
 import Core.TAEDriver;
 import Entities.User;
-import forms.ProfileWidgetForm;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -24,14 +23,8 @@ public class LoginPage extends BaseAbstractPage {
     @FindBy(how = How.XPATH, xpath = "//input[@value='LOGIN']")
     public WebElement loginButton;
 
-
-    public final ProfileWidgetForm profileWidgetForm;
-
     public LoginPage(TAEDriver driver) {
         super(driver, TITLE);
-
-        profileWidgetForm = new ProfileWidgetForm(driver);
-
         PageFactory.initElements(driver.getDriver(), this);
         getLogger().info("Login page initialized");
     }
@@ -61,5 +54,4 @@ public class LoginPage extends BaseAbstractPage {
         fillLoginForm(user);
         submit();
     }
-
 }
