@@ -3,7 +3,10 @@ package uicontrols;
 import BaseControlls.BaseControl;
 import Core.TAEDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.pagefactory.ByChained;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CustomSelect extends BaseControl {
 
@@ -31,8 +34,10 @@ public class CustomSelect extends BaseControl {
 
     public void searchItem(String itemName, int timeOut) throws InterruptedException {
         click(timeOut);
-        driver.getElement(new ByChained(base_locator, By.xpath(INPUT_XPATH))).sendKeys(itemName);
-        Thread.sleep(1000);
+        WebElement input = driver.getElement(new ByChained(base_locator, By.xpath(INPUT_XPATH)));
+        input.sendKeys(itemName);
+        new WebDriverWait(driver.getDriver(), timeOut, DEFAULT_SLEEP).until(ExpectedConditions.attributeContains(
+                new ByChained(base_locator, By.xpath(SEARCH_RESULT), By.xpath("./ul/li[1]")), "class", "select2-results__option select2-results__"));
     }
 
     public void clickElement(String itemName) {
