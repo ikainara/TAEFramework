@@ -1,33 +1,30 @@
 import BaseTest.BaseAbstractChromeTest;
 import Entities.User;
 import TAExceptions.TAUnknownBrowserException;
-import org.testng.Assert;
+import config.TAEConfig;
 import org.testng.annotations.Test;
-import pages.LoginPage;
+import uicontrols.CustomSelect;
+
 
 public class FirstTest extends BaseAbstractChromeTest {
     public FirstTest() throws TAUnknownBrowserException {
     }
 
     @Test
-    public void testLoginWithInvalidCredentials() {
-        getDriver().getDriver().get("https://glo.globallogic.com/apps/glo/login");
-        User user = new User("fakeLogin", "fakePassword");
-
-        LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.tryLogin(user);
-
-        Assert.assertNotEquals(getDriver().getDriver().getTitle(), LoginPage.TITLE,
-                String.format("Verify that login attempt was unsuccessful for user with username: '%s', password: '%s'",
-                        user.getUserName(), user.getPassword()));
+    public void citySearch() {
+        getDriver().getDriver().get("https://www.phptravels.net/");
+        CustomSelect customSelect = new CustomSelect("HotelCity", getDriver(), "(//*[@role='combobox'])[1]");
+        customSelect.selectItem("Krakow");
+        int a = 5+6;
 
     }
 
     @Test
-    public void testPageInfoText() {
-        getDriver().getDriver().get("https://glo.globallogic.com/apps/glo/login");
+    public void test1() {
+        getDriver().getDriver().get("https://www.glo.globallogic.com/");
 
-        LoginPage loginPage = new LoginPage(getDriver());
-        Assert.assertEquals(loginPage.getPageInfoText(), LoginPage.INFO_TEXT, "Verify page info text corresponds to expected one");
+        User user = TAEConfig.getSuccessfulUser();
+
     }
+
 }
