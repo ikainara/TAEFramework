@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Custom Test Suite" parallel="methods" thread-count="2" verbose="1" configfailurepolicy="continue">
+    <test name="CustomSuite" >
+        <!--classes>
+            <class name="gloTests.FirstTest"/>
+        </classes-->
+        <packages>
+            <package name="gloTests.*"/>
+        </packages>
+    </test>
+</suite>

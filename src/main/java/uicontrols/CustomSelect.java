@@ -30,6 +30,11 @@ public class CustomSelect extends BaseControl {
         getLogger().info(String.format("Dropdown item '%s' has been selected in '%s' dropdown ", itemName, super.name));
     }
 
+    public String getSelectedItem() {
+        getLogger().trace("Get selected item text in '%s' dropdown");
+        return driver.getElement(new ByChained(super.locator, By.xpath("./span[@role='textbox']"))).getText();
+    }
+
     public void searchItem(String itemName, int timeOut) {
         getLogger().info(String.format("Expand dropdown '%s'", super.name));
         click(timeOut);
