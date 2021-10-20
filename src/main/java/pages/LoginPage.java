@@ -1,5 +1,6 @@
 package pages;
 
+import BaseElements.BaseAbstractForm;
 import BaseElements.BaseAbstractPage;
 import Core.TAEDriver;
 import Entities.User;
@@ -20,8 +21,9 @@ public class LoginPage extends BaseAbstractPage {
     public WebElement userNameInput;
     @FindBy(id = "password")
     public WebElement passwordInput;
-    @FindBy(how = How.XPATH, xpath = "//input[@value='LOGIN']")
+    @FindBy(xpath = "//input[@value='LOGIN']")
     public WebElement loginButton;
+
 
     public LoginPage(TAEDriver driver) {
         super(driver, TITLE);

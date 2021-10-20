@@ -2,7 +2,7 @@
 <suite name="Custom Test Suite" parallel="methods" thread-count="2" verbose="1" configfailurepolicy="continue">
     <test name="CustomSuite" >
         <!--classes>
-            <class name="gloTests.FirstTest"/>
+            <class name="travelsTest.FirstTest"/>
         </classes-->
         <packages>
             <package name="gloTests.*"/>
