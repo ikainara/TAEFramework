@@ -3,7 +3,10 @@ package uicontrols;
 import BaseControlls.BaseControl;
 import Core.TAEDriver;
 import Entities.Travellers;
+import forms.HotelForm;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
+import pages.HotelsPage;
 
 public class TravellersControl extends BaseControl {
     public TravellersControl(String name, TAEDriver driver, By locator) {
@@ -15,7 +18,7 @@ public class TravellersControl extends BaseControl {
     }
 
     public void setTravellers(Travellers travellers){
-        //this method should set travellers controls
-        //to the state of passed travellers object
+        HotelsPage hotelsPage = new HotelsPage(driver);
+        hotelsPage.setTravellers(travellers);
     }
 }
